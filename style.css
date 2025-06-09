@@ -1,0 +1,123 @@
+:root {
+    /* Colors */
+    --light-blue: #31C3BD;
+    --light-blue-hover: #65E9E4;
+    --light-yellow: #F2B137;
+    --light-yellow-hover: #FFC860;
+    --dark-navy: #1A2A33;
+    --semi-dark-navy: #1F3641;
+    --silver: #A8BFC9;
+    --silver-hover: #DBE8ED;
+}
+
+* {
+    font-family: "Outfit";
+}
+
+body {
+    background-color: #1A2A33;
+}
+
+.header-flex {
+    width: 20.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.player-turn-display {
+    width: 6rem;
+    height: 2.5rem;
+    background-color: var(--semi-dark-navy);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5rem;
+    margin-left: -2rem;
+}
+
+.player-turn-text {
+    color: var(--silver);
+    font-weight: 700;
+}
+
+.player-turn {
+    font-weight: 900;
+}
+
+.restart-container {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--silver);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5rem;;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: 6rem 6rem 6rem;
+    grid-template-rows: 6rem 6rem 6rem 6rem;
+    column-gap: 1.25rem;
+    row-gap: 1.25rem;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.game-tile {
+    background-color: var(--semi-dark-navy);
+    border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.x-score-container {
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-blue);
+    border-radius: .5rem;
+}
+
+.player-x, .player-x-score {
+    margin: 0;
+}
+
+.tie-score-container {
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--silver);
+    border-radius: .5rem;
+}
+
+.tie-title, .tie-score {
+    margin: 0;
+}
+
+.o-score-container {
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-yellow);
+    border-radius: .5rem;
+}
+
+.player-o, .player-o-score {
+    margin: 0;
+}
+
+.hide {
+    display: none;
+}

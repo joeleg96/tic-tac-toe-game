@@ -14,8 +14,135 @@
     font-family: "Outfit";
 }
 
+.heading-large {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: .15625rem;
+}
+
+.heading-medium {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: .9375rem;
+}
+
+.heading-small {
+    font-size: 1.25rem;
+    font-weight: bold;
+    letter-spacing: .078125rem;
+}
+
+.heading-xs {
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: .0625rem;
+}
+
 body {
     background-color: #1A2A33;
+    overflow-y: hidden;
+}
+
+.new-game-flex-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-game-content-container {
+    width: 20.4375rem;
+    height: 26.8125rem;
+}
+
+.new-game-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select-player-container {
+    margin-top: 2rem;
+    background-color: var(--semi-dark-navy);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: .825rem;
+    box-shadow: 3px 9px 0px 0px rgba(0,0,0,.25);
+}
+
+.select-player-title {
+    text-align: center;
+    color: var(--silver);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: .0625rem;
+}
+
+.select-mark-container {
+    width: 17.4375rem;
+    height: 4.5rem;
+    background-color: var(--dark-navy);
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: .825rem;
+    margin-top: 2rem;
+}
+
+.select-x, .select-o {
+    width: 8.25rem;
+    height: 3.375rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: .85rem;
+    background-color: var(--dark-navy);
+    border: none;
+}
+
+.x-outline, .x-outline-silver, .o-outline, .o-outline-silver {
+    width: 2rem;
+    height: 2rem;  
+}
+
+.select-player-text {
+    text-align: center;
+    color: var(--silver);
+    margin-top: 2rem;
+    letter-spacing: .055rem;
+}
+
+.new-game-buttons-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.new-game-btn {
+    width: 20.4375rem;
+    height: 3.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: .0625rem;;
+    color: var(--dark-navy);
+    border-radius: .825rem;
+    border: none;
+}
+
+.vs-cpu-button {
+    background-color: var(--light-yellow);
+    box-shadow: 0px 8px 0px 0px rgba(242,177,55,.5);
+}
+
+.vs-player-button {
+    background-color: var(--light-blue);
+    box-shadow: 0px 8px 0px 0px rgba(49,195,189,.55);
+    margin-top: 1.5rem;
 }
 
 .header-flex {
@@ -26,6 +153,7 @@ body {
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 3rem;
 }
 
 .player-turn-display {
@@ -55,7 +183,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: .5rem;;
+    border-radius: .5rem;
 }
 
 .game-grid {
@@ -70,10 +198,11 @@ body {
 
 .game-tile {
     background-color: var(--semi-dark-navy);
-    border-radius: .5rem;
+    border-radius: .825rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 3px 9px 0px 0px rgba(0,0,0,.25);
 }
 
 .x-score-container {
@@ -88,6 +217,7 @@ body {
 
 .player-x, .player-x-score {
     margin: 0;
+    color: var(--dark-navy);
 }
 
 .tie-score-container {
@@ -102,6 +232,7 @@ body {
 
 .tie-title, .tie-score {
     margin: 0;
+    color: var(--dark-navy);
 }
 
 .o-score-container {
@@ -116,8 +247,75 @@ body {
 
 .player-o, .player-o-score {
     margin: 0;
+    color: var(--dark-navy);
+}
+
+.score-title {
+    font-weight: 500;
+    font-size: .75rem;
+}
+
+.score {
+    font-weight: 700;
+    font-size: 1.25rem;
 }
 
 .hide {
     display: none;
+}
+
+.selected {
+    background-color: var(--silver);
+}
+
+@media screen and (min-width: 800px) {
+    .header-flex {
+        width: 28.5625rem;
+        margin-top: 8rem;
+    }
+
+    .new-game-content-container {
+        width: 28.75rem;
+        height: 29.4375rem;
+    }
+
+    .select-mark-container {
+        width: 25.75rem;
+    }
+
+    .select-x, .select-o {
+        width: 12.375rem;
+    }
+
+    .new-game-btn {
+        width: 28.75rem;
+    }
+
+    .game-grid {
+        display: grid;
+        grid-template-columns: 8.75rem 8.75rem 8.75rem;
+        grid-template-rows: 8.75rem 8.75rem 8.75rem 8.75rem;
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .select-x:hover, .select-o:hover {
+        cursor: pointer;
+        background-color: var(--semi-dark-navy);
+    }
+
+    .vs-cpu-button:hover {
+        background-color: var(--light-yellow-hover);
+        cursor: pointer;
+    }
+
+    .vs-player-button:hover {
+        background-color: var(--light-blue-hover);
+        cursor: pointer;
+    }
+
+    .game-tile:hover, .restart-container:hover {
+        cursor: pointer;
+    }
 }

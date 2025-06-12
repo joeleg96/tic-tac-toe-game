@@ -293,15 +293,29 @@ body {
 }
 
 .winner-mark {
-    width: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     margin-right: 1rem;
-    margin-top: .5rem;
 }
 
 .takes-round-text {
     font-size: 1.5rem;
     font-weight: 700;
+}
+
+.x-winner-mark-container, .o-winner-mark-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.x-takes-round-text {
     color: var(--light-blue);
+}
+
+.o-takes-round-text {
+    color: var(--light-yellow);
 }
 
 .winner-display-buttons-container {

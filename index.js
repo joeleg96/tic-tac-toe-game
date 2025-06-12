@@ -60,29 +60,78 @@ $(".vs-player-button").on("click", function() {
     }
 });
 
-// Game Functions
-// $(".game-tile").hover(function (event) {
-//     var hoverMark = (playerOneMark + "-hover-" + this.id);
-//     if(availableTiles.indexOf(this.id) !== -1) {
-//         $("." + hoverMark).removeClass("hide"); 
-//     };
-    
-// }, 
-// function () {
-//     var hoverMark = (playerOneMark + "-hover-" + this.id);
-//     $("." + hoverMark).addClass("hide");
-    
-// });
-
 function playerOneTurn() {
     $(".game-tile").on("click", function(event) {
-        console.log(this.id);
-        console.log(playerOneMark[0]);
-        $("." + playerOneMark +"-" + this.id).removeClass("hide");
-        playerOneMoves.push(this.id); 
-        availableTiles.splice(availableTiles.indexOf(this.id),1);
-        var hoverMark = (playerOneMark + "-hover-" + this.id);
-        $("." + hoverMark).addClass("hide");
+        if (availableTiles.indexOf(this.id) !== -1) {
+            $("." + playerOneMark +"-" + this.id).removeClass("hide");
+            playerOneMoves.push(this.id); 
+            // console.log("index of player chosen " + availableTiles.indexOf(this.id));
+            availableTiles.splice(availableTiles.indexOf(this.id),1);
+            // console.log("after player turn" + availableTiles);
+            var hoverMark = (playerOneMark + "-hover-" + this.id);
+            $("." + hoverMark).addClass("hide");  
+        }
+        
+
+        if (playerOneMoves.indexOf("tile-1") !== -1 && playerOneMoves.indexOf("tile-2") !== -1 && playerOneMoves.indexOf("tile-3") !== -1 ) {
+        $(".winner-display-content-container").removeClass("hide");
+        $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $("." + cpuMark + "-winner-mark-container").addClass("hide");
+    };
+
+    if (playerOneMoves.indexOf("tile-4") !== -1 && playerOneMoves.indexOf("tile-5") !== -1 && playerOneMoves.indexOf("tile-6") !== -1 ) {
+         $(".winner-display-content-container").removeClass("hide");
+        $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $("." + cpuMark + "-winner-mark-container").addClass("hide");
+    };
+
+    if (playerOneMoves.indexOf("tile-7") !== -1 && playerOneMoves.indexOf("tile-8") !== -1 && playerOneMoves.indexOf("tile-9") !== -1 ) {
+         $(".winner-display-content-container").removeClass("hide");
+        $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $("." + cpuMark + "-winner-mark-container").addClass("hide");
+    };
+
+    if (playerOneMoves.indexOf("tile-1") !== -1 && playerOneMoves.indexOf("tile-4") !== -1 && playerOneMoves.indexOf("tile-7") !== -1 ) {
+         $(".winner-display-content-container").removeClass("hide");
+        $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $("." + cpuMark + "-winner-mark-container").addClass("hide");
+    };
+
+    if (playerOneMoves.indexOf("tile-2") !== -1 && playerOneMoves.indexOf("tile-5") !== -1 && playerOneMoves.indexOf("tile-8") !== -1 ) {
+         $(".winner-display-content-container").removeClass("hide");
+        $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $("." + cpuMark + "-winner-mark-container").addClass("hide");
+    };
+
+    if (playerOneMoves.indexOf("tile-3") !== -1 && playerOneMoves.indexOf("tile-6") !== -1 && playerOneMoves.indexOf("tile-9") !== -1 ) {
+         $(".winner-display-content-container").removeClass("hide");
+        $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $("." + cpuMark + "-winner-mark-container").addClass("hide");
+    };
+
+    if (playerOneMoves.indexOf("tile-1") !== -1 && playerOneMoves.indexOf("tile-5") !== -1 && playerOneMoves.indexOf("tile-9") !== -1 ) {
+         $(".winner-display-content-container").removeClass("hide");
+        $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $("." + cpuMark + "-winner-mark-container").addClass("hide");
+    };
+
+    if (playerOneMoves.indexOf("tile-3") !== -1 && playerOneMoves.indexOf("tile-5") !== -1 && playerOneMoves.indexOf("tile-7") !== -1 ) {
+         $(".winner-display-content-container").removeClass("hide");
+        $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $("." + cpuMark + "-winner-mark-container").addClass("hide");
+    }
+
+    else {
+        cpuTurn();
+    }
     });
     
     $(".game-tile").hover(function (event) {
@@ -94,20 +143,80 @@ function playerOneTurn() {
 }, 
 function () {
     var hoverMark = (playerOneMark + "-hover-" + this.id);
-    $("." + hoverMark).addClass("hide");
-    
+    $("." + hoverMark).addClass("hide");   
 });
+
 };
 
 function cpuTurn() {
-    var numberOfFreeTiles = Math.floor(availableTiles.length)-1;
+    var numberOfFreeTiles = Math.floor(availableTiles.length);
     var randomNumber = Math.floor(Math.random() * numberOfFreeTiles);
-    cpuChosenTile = ( "-tile-" + randomNumber);
-    $("." + cpuMark + cpuChosenTile).removeClass("hide");
+    cpuChosenTile = availableTiles[randomNumber];
+    console.log(cpuChosenTile);
+    $("." + cpuMark + "-" + cpuChosenTile).removeClass("hide");
     cpuMoves.push(cpuChosenTile);
-    availableTiles.splice(availableTiles.indexOf(cpuChosenTile),1);
-    console.log(availableTiles);
+    console.log(availableTiles.indexOf(cpuChosenTile));
+    availableTiles.splice(randomNumber,1);
+    console.log("after cpu turn" + availableTiles);
+    
+    if (cpuMoves.indexOf("tile-1") !== -1 && cpuMoves.indexOf("tile-2") !== -1 && cpuMoves.indexOf("tile-3") !== -1 ) {
+        $(".winner-display-content-container").removeClass("hide");
+        $("." + cpuMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerOneMark  + "-winner-mark-container").addClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+    }
 
+    if (cpuMoves.indexOf("tile-4") !== -1 && cpuMoves.indexOf("tile-5") !== -1 && cpuMoves.indexOf("tile-6") !== -1 ) {
+        $(".winner-display-content-container").removeClass("hide");
+        $("." + cpuMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerOneMark  + "-winner-mark-container").addClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+    }
 
+    if (cpuMoves.indexOf("tile-7") !== -1 && cpuMoves.indexOf("tile-8") !== -1 && cpuMoves.indexOf("tile-9") !== -1 ) {
+        $(".winner-display-content-container").removeClass("hide");
+        $("." + cpuMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerOneMark  + "-winner-mark-container").addClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+    }
 
+    if (cpuMoves.indexOf("tile-1") !== -1 && cpuMoves.indexOf("tile-4") !== -1 && cpuMoves.indexOf("tile-7") !== -1 ) {
+        $(".winner-display-content-container").removeClass("hide");
+        $("." + cpuMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerOneMark  + "-winner-mark-container").addClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+    }
+
+    if (cpuMoves.indexOf("tile-2") !== -1 && cpuMoves.indexOf("tile-5") !== -1 && cpuMoves.indexOf("tile-8") !== -1 ) {
+        $(".winner-display-content-container").removeClass("hide");
+        $("." + cpuMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerOneMark  + "-winner-mark-container").addClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+    }
+
+    if (cpuMoves.indexOf("tile-3") !== -1 && cpuMoves.indexOf("tile-6") !== -1 && cpuMoves.indexOf("tile-9") !== -1 ) {
+        $(".winner-display-content-container").removeClass("hide");
+        $("." + cpuMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerOneMark  + "-winner-mark-container").addClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+    }
+
+    if (cpuMoves.indexOf("tile-1") !== -1 && cpuMoves.indexOf("tile-5") !== -1 && cpuMoves.indexOf("tile-9") !== -1 ) {
+        $(".winner-display-content-container").removeClass("hide");
+        $("." + cpuMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerOneMark  + "-winner-mark-container").addClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+    }
+
+    if (cpuMoves.indexOf("tile-3") !== -1 && cpuMoves.indexOf("tile-5") !== -1 && cpuMoves.indexOf("tile-7") !== -1 ) {
+        $(".winner-display-content-container").removeClass("hide");
+        $("." + cpuMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerOneMark  + "-winner-mark-container").addClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+    }
+
+    else {
+       playerOneTurn(); 
+    }
 };
+

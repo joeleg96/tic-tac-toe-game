@@ -108,7 +108,24 @@
         <p class="player-o score-title">O (CPU)</p>
         <p class="player-o-score score">11</p>
       </div>
+      <div class="winner-display-content-container hide">
+        <p class="player-wins-text">PLAYER 1 WINS</p>
+        <div class="winner-color-flex">
+          <div class="winner-mark-container">
+            <img class="winner-mark o-winner-mark hide" src="./assets/icon-o.svg" alt="icon-o">
+            <img class="winner-mark x-winner-mark" src="./assets/icon-x.svg" alt="icon-x">
+          </div>
+          <div class="takes-the-round">
+            <p class="takes-round-text">TAKES THE ROUND</p>
+          </div>
+        </div>
+        <div class="winner-display-buttons-container">
+          <button class="quit-btn">QUIT</button>
+          <button class="next-round-btn">NEXT ROUND</button>
+        </div>
+      </div>      
     </div>
+    
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
   <script src="./index.js" charset="UTF-8"></script>

@@ -260,6 +260,78 @@ body {
     font-size: 1.25rem;
 }
 
+.winner-display-flex-container {
+    width: 100vw;
+
+}
+
+.winner-display-content-container {
+    width: 100vw;
+    height: 14.25rem;
+    background-color: var(--dark-navy);
+    box-shadow: -1px 2px 400px 2000px rgba(0,0,0,0.55);
+    position: absolute;
+    left: 0;
+    top: 20%;
+}
+
+.player-wins-text {
+    font-size: .875rem;
+    font-weight: 600;
+    color: var(--silver);
+    letter-spacing: .055rem;
+    text-align: center;
+    padding-top: 2rem;
+    margin: 0;
+}
+
+.winner-color-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.winner-mark {
+    width: 2rem;
+    margin-right: 1rem;
+    margin-top: .5rem;
+}
+
+.takes-round-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--light-blue);
+}
+
+.winner-display-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: .5rem;
+}
+
+.quit-btn {
+    width: 4.75rem;
+    height: 3.25rem;
+    margin-right: 1rem;
+    border: none;
+    border-radius: .825rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: var(--silver);
+}
+
+.next-round-btn {
+    width: 9.125rem;
+    height: 3.25rem;
+    border: none;
+    border-radius: .825rem;
+    background-color: var(--light-yellow);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
 .hide {
     display: none;
 }
@@ -297,6 +369,19 @@ body {
         grid-template-rows: 8.75rem 8.75rem 8.75rem 8.75rem;
         margin-top: 2rem;
     }
+
+    .winner-display-content-container {
+        height: 16.625rem;
+        top: 35%; 
+    }
+
+    .winner-mark {
+        width: 3rem;
+    }
+
+    .takes-round-text {
+        font-size: 2.5rem;
+    }
 }
 
 @media screen and (min-width: 1200px) {
@@ -317,5 +402,9 @@ body {
 
     .game-tile:hover, .restart-container:hover {
         cursor: pointer;
+    }
+
+    .restart-container:hover {
+        background-color: var(--silver-hover);
     }
 }

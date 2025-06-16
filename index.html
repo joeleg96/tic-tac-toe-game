@@ -12,7 +12,7 @@
   <title>Frontend Mentor | Tic Tac Toe</title>
 </head>
 <body>
-  <div class="new-game-flex-container ">
+  <div class="new-game-flex-container">
     <div class="new-game-content-container">
       <div class="new-game-logo-container"><img src="./assets/logo.svg" alt="logo"></div>
       <div class="select-player-container">
@@ -35,7 +35,7 @@
       </div>
     </div>
   </div>
-  <div class="game-display">
+  <div class="game-display hide">
     <div class="header-flex">
       <div class="logo-container"><img class="logo" src="./assets/logo.svg" alt="logo"></div>
       <div class="player-turn-display"><p class="player-turn-text"><span class="player-turn">X</span> TURN</p></div>
@@ -98,19 +98,19 @@
       </div>
       <div class="x-score-container">
         <p class="player-x score-title">X (YOU)</p>
-        <p class="player-x-score score">14</p>
+        <p class="player-x-score score">0</p>
       </div>
       <div class="tie-score-container">
         <p class="tie-title score-title">TIES</p>
-        <p class="tie-score score">32</p>
+        <p class="tie-score score">0</p>
       </div>
       <div class="o-score-container">
         <p class="player-o score-title">O (CPU)</p>
-        <p class="player-o-score score">11</p>
+        <p class="player-o-score score">0</p>
       </div>
       <div class="winner-display-content-container hide">
         <p class="player-wins-text">PLAYER 1 WINS</p>
-        <p class="you-lost-text"> OH NO, YOU LOST...</p>
+        <p class="you-lost-text hide"> OH NO, YOU LOST...</p>
         <div class="winner-color-flex">
           <div class="x-winner-mark-container">
             <img class="winner-mark x-winner-mark" src="./assets/icon-x.svg" alt="icon-x">
@@ -119,6 +119,9 @@
           <div class="o-winner-mark-container hide">
             <img class="winner-mark o-winner-mark" src="./assets/icon-o.svg" alt="icon-o">
             <p class="takes-round-text o-takes-round-text">TAKES THE ROUND</p>
+          </div>
+          <div class="round-tied-container hide">
+            <p class="round-tied-text">ROUND TIED</p>
           </div>
         </div>
         <div class="winner-display-buttons-container">

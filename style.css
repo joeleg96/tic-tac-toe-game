@@ -40,7 +40,6 @@
 
 body {
     background-color: #1A2A33;
-    overflow-y: hidden;
 }
 
 .new-game-flex-container {
@@ -285,6 +284,17 @@ body {
     margin: 0;
 }
 
+.you-lost-text {
+    text-align: center;
+    color: var(--silver);
+    font-size: .875rem;
+    font-weight: 600;
+    letter-spacing: .055rem;
+    text-align: center;
+    padding-top: 2rem;
+    margin: 0;
+}
+
 .winner-color-flex {
     display: flex;
     flex-direction: row;
@@ -316,6 +326,14 @@ body {
 
 .o-takes-round-text {
     color: var(--light-yellow);
+}
+
+.round-tied-text {
+    text-align: center;
+    color: var(--silver);
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: .15625rem;
 }
 
 .winner-display-buttons-container {
@@ -420,5 +438,9 @@ body {
 
     .restart-container:hover {
         background-color: var(--silver-hover);
+    }
+
+    .quit-btn, .next-round-btn {
+        cursor: pointer;
     }
 }

@@ -11,6 +11,7 @@ var availableTiles = ["tile-1", "tile-2", "tile-3", "tile-4", "tile-5", "tile-6"
 var player1VsCpuWins = 0;
 var cpuWins = 0;
 var player2Wins = 0;
+var tieCount = 0;
 
 
 // New Game Functions
@@ -71,7 +72,101 @@ $(".vs-cpu-button").on("click", function() {
 });
 
 function playerOneTurn() {
-    $(".game-tile").on("click", function(event) {
+   
+    if (playerOneMoves.indexOf("tile-1") !== -1 && playerOneMoves.indexOf("tile-2") !== -1 && playerOneMoves.indexOf("tile-3") !== -1 ) {
+        $(".winner-display-content-container").removeClass("hide");
+        $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $("." + cpuMark + "-winner-mark-container").addClass("hide");
+        $(".round-tied-container").addClass("hide");
+        player1VsCpuWins += 1;
+        console.log(player1VsCpuWins);
+        $(".player-" + playerOneMark + "-score").text(player1VsCpuWins);
+    }
+
+
+    else if (playerOneMoves.indexOf("tile-4") !== -1 && playerOneMoves.indexOf("tile-5") !== -1 && playerOneMoves.indexOf("tile-6") !== -1 ) {
+        $(".winner-display-content-container").removeClass("hide");
+        $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $(".round-tied-container").addClass("hide");
+        $("." + cpuMark + "-winner-mark-container").addClass("hide");
+        player1VsCpuWins += 1;
+        $(".player-" + playerOneMark + "-score").text(player1VsCpuWins);
+    }
+
+    else if (playerOneMoves.indexOf("tile-7") !== -1 && playerOneMoves.indexOf("tile-8") !== -1 && playerOneMoves.indexOf("tile-9") !== -1 ) {
+        $(".winner-display-content-container").removeClass("hide");
+        $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $(".round-tied-container").addClass("hide");
+        $("." + cpuMark + "-winner-mark-container").addClass("hide");
+        player1VsCpuWins += 1;
+        $(".player-" + playerOneMark + "-score").text(player1VsCpuWins);
+    }
+
+    else if (playerOneMoves.indexOf("tile-1") !== -1 && playerOneMoves.indexOf("tile-4") !== -1 && playerOneMoves.indexOf("tile-7") !== -1 ) {
+        $(".winner-display-content-container").removeClass("hide");
+        $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $(".round-tied-container").addClass("hide");
+        $("." + cpuMark + "-winner-mark-container").addClass("hide");
+        player1VsCpuWins += 1;
+        $(".player-" + playerOneMark + "-score").text(player1VsCpuWins);
+    }
+
+    else if (playerOneMoves.indexOf("tile-2") !== -1 && playerOneMoves.indexOf("tile-5") !== -1 && playerOneMoves.indexOf("tile-8") !== -1 ) {
+        $(".winner-display-content-container").removeClass("hide");
+        $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $(".round-tied-container").addClass("hide");
+        $("." + cpuMark + "-winner-mark-container").addClass("hide");
+        player1VsCpuWins += 1;
+        $(".player-" + playerOneMark + "-score").text(player1VsCpuWins);
+    }
+
+        else if (playerOneMoves.indexOf("tile-3") !== -1 && playerOneMoves.indexOf("tile-6") !== -1 && playerOneMoves.indexOf("tile-9") !== -1 ) {
+        $(".winner-display-content-container").removeClass("hide");
+        $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $(".round-tied-container").addClass("hide");
+        $("." + cpuMark + "-winner-mark-container").addClass("hide");
+        player1VsCpuWins += 1;
+        $(".player-" + playerOneMark + "-score").text(player1VsCpuWins);
+    }
+
+    else if (playerOneMoves.indexOf("tile-1") !== -1 && playerOneMoves.indexOf("tile-5") !== -1 && playerOneMoves.indexOf("tile-9") !== -1 ) {
+        $(".winner-display-content-container").removeClass("hide");
+        $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $(".round-tied-container").addClass("hide");
+        $("." + cpuMark + "-winner-mark-container").addClass("hide");
+        player1VsCpuWins += 1;
+        $(".player-" + playerOneMark + "-score").text(player1VsCpuWins);
+    }
+
+    else if (playerOneMoves.indexOf("tile-3") !== -1 && playerOneMoves.indexOf("tile-5") !== -1 && playerOneMoves.indexOf("tile-7") !== -1 ) {
+        $(".winner-display-content-container").removeClass("hide");
+        $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
+        $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $(".round-tied-container").addClass("hide");
+        $("." + cpuMark + "-winner-mark-container").addClass("hide");
+        player1VsCpuWins += 1;
+        $(".player-" + playerOneMark + "-score").text(player1VsCpuWins);
+    }
+
+    else if (availableTiles.length === 0) {
+        $(".player-wins-text").addClass("hide");
+        $(".x-winner-mark-container").addClass("hide");
+        $(".o-winner-mark-container").addClass("hide");
+        $(".round-tied-container").removeClass("hide");
+        $(".winner-display-content-container").removeClass("hide");
+        tieCount += 1;
+        $(".tie-score").text(tieCount);
+    }
+
+    else if ($(".winner-display-content-container").hasClass("hide")){
+        $(".game-tile").on("click", function(event) {
         if (availableTiles.indexOf(this.id) !== -1) {
             $("." + playerOneMark +"-" + this.id).removeClass("hide");
             playerOneMoves.push(this.id); 
@@ -80,91 +175,10 @@ function playerOneTurn() {
             $("." + hoverMark).addClass("hide");  
             
             setTimeout(cpuTurn, 1000); 
-         }
-        
-
-         else if (playerOneMoves.indexOf("tile-1") !== -1 && playerOneMoves.indexOf("tile-2") !== -1 && playerOneMoves.indexOf("tile-3") !== -1 ) {
-            $(".winner-display-content-container").removeClass("hide");
-            $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
-            $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
-            $("." + cpuMark + "-winner-mark-container").addClass("hide");
-            player1VsCpuWins += 1;
-            console.log(player1VsCpuWins);
-            $(".player-" + playerOneMark + "-score").text(player1VsCpuWins);
-         }
-
-
-         else if (playerOneMoves.indexOf("tile-4") !== -1 && playerOneMoves.indexOf("tile-5") !== -1 && playerOneMoves.indexOf("tile-6") !== -1 ) {
-            $(".winner-display-content-container").removeClass("hide");
-            $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
-            $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
-            $("." + cpuMark + "-winner-mark-container").addClass("hide");
-            player1VsCpuWins += 1;
-           $(".player-" + playerOneMark + "-score").text(player1VsCpuWins);
-            }
-
-         else if (playerOneMoves.indexOf("tile-7") !== -1 && playerOneMoves.indexOf("tile-8") !== -1 && playerOneMoves.indexOf("tile-9") !== -1 ) {
-            $(".winner-display-content-container").removeClass("hide");
-            $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
-            $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
-            $("." + cpuMark + "-winner-mark-container").addClass("hide");
-            player1VsCpuWins += 1;
-            $(".player-" + playerOneMark + "-score").text(player1VsCpuWins);
-            }
-
-         else if (playerOneMoves.indexOf("tile-1") !== -1 && playerOneMoves.indexOf("tile-4") !== -1 && playerOneMoves.indexOf("tile-7") !== -1 ) {
-            $(".winner-display-content-container").removeClass("hide");
-            $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
-            $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
-            $("." + cpuMark + "-winner-mark-container").addClass("hide");
-            player1VsCpuWins += 1;
-           $(".player-" + playerOneMark + "-score").text(player1VsCpuWins);
-         }
-
-         else if (playerOneMoves.indexOf("tile-2") !== -1 && playerOneMoves.indexOf("tile-5") !== -1 && playerOneMoves.indexOf("tile-8") !== -1 ) {
-            $(".winner-display-content-container").removeClass("hide");
-            $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
-            $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
-            $("." + cpuMark + "-winner-mark-container").addClass("hide");
-            player1VsCpuWins += 1;
-            $(".player-" + playerOneMark + "-score").text(player1VsCpuWins);
-        }
-
-         else if (playerOneMoves.indexOf("tile-3") !== -1 && playerOneMoves.indexOf("tile-6") !== -1 && playerOneMoves.indexOf("tile-9") !== -1 ) {
-            $(".winner-display-content-container").removeClass("hide");
-            $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
-            $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
-            $("." + cpuMark + "-winner-mark-container").addClass("hide");
-            player1VsCpuWins += 1;
-            $(".player-" + playerOneMark + "-score").text(player1VsCpuWins);
-        }
-
-         else if (playerOneMoves.indexOf("tile-1") !== -1 && playerOneMoves.indexOf("tile-5") !== -1 && playerOneMoves.indexOf("tile-9") !== -1 ) {
-            $(".winner-display-content-container").removeClass("hide");
-            $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
-            $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
-            $("." + cpuMark + "-winner-mark-container").addClass("hide");
-            player1VsCpuWins += 1;
-            $(".player-" + playerOneMark + "-score").text(player1VsCpuWins);
-        }
-
-         else if (playerOneMoves.indexOf("tile-3") !== -1 && playerOneMoves.indexOf("tile-5") !== -1 && playerOneMoves.indexOf("tile-7") !== -1 ) {
-            $(".winner-display-content-container").removeClass("hide");
-            $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
-            $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
-            $("." + cpuMark + "-winner-mark-container").addClass("hide");
-            player1VsCpuWins += 1;
-            $(".player-" + playerOneMark + "-score").text(player1VsCpuWins);
-        }
-
-        else if (availableTiles.length === 0) {
-            $(".player-wins-text").addClass("hide");
-            $(".x-winner-mark-container").addClass("hide");
-            $(".o-winner-mark-container").addClass("hide");
-            $(".round-tied-container").removeClass("hide");
-        }
-
+        };
     });
+
+    };
     
     $(".game-tile").hover(function (event) {
     var hoverMark = (playerOneMark + "-hover-" + this.id);
@@ -181,82 +195,94 @@ function playerOneTurn() {
 };
 
 function cpuTurn() {
-    var numberOfFreeTiles = Math.floor(availableTiles.length);
-    var randomNumber = [];
-    randomNumber.push(Math.floor(Math.random() * numberOfFreeTiles));
-    cpuChosenTile = availableTiles[randomNumber[0]];
-    $("." + cpuMark + "-" + cpuChosenTile).removeClass("hide");
-    cpuMoves.push(cpuChosenTile);
-    availableTiles.splice(randomNumber,1);
+
+    if ($(".winner-display-content-container").hasClass("hide")) {
+        var numberOfFreeTiles = Math.floor(availableTiles.length);
+        var randomNumber = [];
+        randomNumber.push(Math.floor(Math.random() * numberOfFreeTiles));
+        cpuChosenTile = availableTiles[randomNumber[0]];
+        $("." + cpuMark + "-" + cpuChosenTile).removeClass("hide");
+        cpuMoves.push(cpuChosenTile);
+        availableTiles.splice(randomNumber,1); 
+    }
     
-    if (cpuMoves.indexOf("tile-1") !== -1 && cpuMoves.indexOf("tile-2") !== -1 && cpuMoves.indexOf("tile-3") !== -1 ) {
+    
+   else if (cpuMoves.indexOf("tile-1") !== -1 && cpuMoves.indexOf("tile-2") !== -1 && cpuMoves.indexOf("tile-3") !== -1 ) {
         $(".winner-display-content-container").removeClass("hide");
         $("." + cpuMark + "-winner-mark-container").removeClass("hide");
         $("." + playerOneMark  + "-winner-mark-container").addClass("hide");
         $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $(".round-tied-container").addClass("hide");
         cpuWins += 1;
         $(".player-" + cpuMark + "-score").text(cpuWins);
     }
 
-    if (cpuMoves.indexOf("tile-4") !== -1 && cpuMoves.indexOf("tile-5") !== -1 && cpuMoves.indexOf("tile-6") !== -1 ) {
+    else if (cpuMoves.indexOf("tile-4") !== -1 && cpuMoves.indexOf("tile-5") !== -1 && cpuMoves.indexOf("tile-6") !== -1 ) {
         $(".winner-display-content-container").removeClass("hide");
         $("." + cpuMark + "-winner-mark-container").removeClass("hide");
         $("." + playerOneMark  + "-winner-mark-container").addClass("hide");
         $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $(".round-tied-container").addClass("hide");
         cpuWins += 1;
         $(".player-" + cpuMark + "-score").text(cpuWins);
     }
 
-    if (cpuMoves.indexOf("tile-7") !== -1 && cpuMoves.indexOf("tile-8") !== -1 && cpuMoves.indexOf("tile-9") !== -1 ) {
+    else if (cpuMoves.indexOf("tile-7") !== -1 && cpuMoves.indexOf("tile-8") !== -1 && cpuMoves.indexOf("tile-9") !== -1 ) {
         $(".winner-display-content-container").removeClass("hide");
         $("." + cpuMark + "-winner-mark-container").removeClass("hide");
         $("." + playerOneMark  + "-winner-mark-container").addClass("hide");
         $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $(".round-tied-container").addClass("hide");
         cpuWins += 1;
         $(".player-" + cpuMark + "-score").text(cpuWins);
     }
 
-    if (cpuMoves.indexOf("tile-1") !== -1 && cpuMoves.indexOf("tile-4") !== -1 && cpuMoves.indexOf("tile-7") !== -1 ) {
+    else if (cpuMoves.indexOf("tile-1") !== -1 && cpuMoves.indexOf("tile-4") !== -1 && cpuMoves.indexOf("tile-7") !== -1 ) {
         $(".winner-display-content-container").removeClass("hide");
         $("." + cpuMark + "-winner-mark-container").removeClass("hide");
         $("." + playerOneMark  + "-winner-mark-container").addClass("hide");
         $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $(".round-tied-container").addClass("hide");
         cpuWins += 1;
         $(".player-" + cpuMark + "-score").text(cpuWins);
     }
 
-    if (cpuMoves.indexOf("tile-2") !== -1 && cpuMoves.indexOf("tile-5") !== -1 && cpuMoves.indexOf("tile-8") !== -1 ) {
+    else if (cpuMoves.indexOf("tile-2") !== -1 && cpuMoves.indexOf("tile-5") !== -1 && cpuMoves.indexOf("tile-8") !== -1 ) {
         $(".winner-display-content-container").removeClass("hide");
         $("." + cpuMark + "-winner-mark-container").removeClass("hide");
         $("." + playerOneMark  + "-winner-mark-container").addClass("hide");
         $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $(".round-tied-container").addClass("hide");
         cpuWins += 1;
         $(".player-" + cpuMark + "-score").text(cpuWins);
     }
 
-    if (cpuMoves.indexOf("tile-3") !== -1 && cpuMoves.indexOf("tile-6") !== -1 && cpuMoves.indexOf("tile-9") !== -1 ) {
+    else if (cpuMoves.indexOf("tile-3") !== -1 && cpuMoves.indexOf("tile-6") !== -1 && cpuMoves.indexOf("tile-9") !== -1 ) {
         $(".winner-display-content-container").removeClass("hide");
         $("." + cpuMark + "-winner-mark-container").removeClass("hide");
         $("." + playerOneMark  + "-winner-mark-container").addClass("hide");
         $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $(".round-tied-container").addClass("hide");
         cpuWins += 1;
         $(".player-" + cpuMark + "-score").text(cpuWins);
     }
 
-    if (cpuMoves.indexOf("tile-1") !== -1 && cpuMoves.indexOf("tile-5") !== -1 && cpuMoves.indexOf("tile-9") !== -1 ) {
+    else if (cpuMoves.indexOf("tile-1") !== -1 && cpuMoves.indexOf("tile-5") !== -1 && cpuMoves.indexOf("tile-9") !== -1 ) {
         $(".winner-display-content-container").removeClass("hide");
         $("." + cpuMark + "-winner-mark-container").removeClass("hide");
         $("." + playerOneMark  + "-winner-mark-container").addClass("hide");
         $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $(".round-tied-container").addClass("hide");
         cpuWins += 1;
         $(".player-" + cpuMark + "-score").text(cpuWins);
     }
 
-    if (cpuMoves.indexOf("tile-3") !== -1 && cpuMoves.indexOf("tile-5") !== -1 && cpuMoves.indexOf("tile-7") !== -1 ) {
+    else if (cpuMoves.indexOf("tile-3") !== -1 && cpuMoves.indexOf("tile-5") !== -1 && cpuMoves.indexOf("tile-7") !== -1 ) {
         $(".winner-display-content-container").removeClass("hide");
         $("." + cpuMark + "-winner-mark-container").removeClass("hide");
         $("." + playerOneMark  + "-winner-mark-container").addClass("hide");
         $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
+        $(".round-tied-container").addClass("hide");
         cpuWins += 1;
         $(".player-" + cpuMark + "-score").text(cpuWins);
     }
@@ -266,6 +292,9 @@ function cpuTurn() {
         $(".x-winner-mark-container").addClass("hide");
         $(".o-winner-mark-container").addClass("hide");
         $(".round-tied-container").removeClass("hide");
+        $(".winner-display-content-container").removeClass("hide");
+        tieCount += 1;
+        $(".tie-score").text(tieCount);
     }
 
     else {
@@ -314,6 +343,7 @@ function playerOneTurnPVP() {
             $("." + playerOneMarkPVP + "-winner-mark-container").removeClass("hide");
             $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
             $("." + cpuMark + "-winner-mark-container").addClass("hide");
+            $(".round-tied-container").addClass("hide");
             player1VsCpuWins += 1;
             console.log(player1VsCpuWins);
             $(".player-" + playerOneMarkPVP + "-score").text(player1VsCpuWins);
@@ -325,6 +355,7 @@ function playerOneTurnPVP() {
             $("." + playerOneMarkPVP + "-winner-mark-container").removeClass("hide");
             $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
             $("." + cpuMark + "-winner-mark-container").addClass("hide");
+            $(".round-tied-container").addClass("hide");
             player1VsCpuWins += 1;
             $(".player-" + playerOneMarkPVP + "-score").text(player1VsCpuWins);
             }
@@ -334,6 +365,7 @@ function playerOneTurnPVP() {
             $("." + playerOneMarkPVP + "-winner-mark-container").removeClass("hide");
             $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
             $("." + cpuMark + "-winner-mark-container").addClass("hide");
+            $(".round-tied-container").addClass("hide");
             player1VsCpuWins += 1;
             $(".player-" + playerOneMarkPVP + "-score").text(player1VsCpuWins);
             }
@@ -343,6 +375,8 @@ function playerOneTurnPVP() {
             $("." + playerOneMarkPVP + "-winner-mark-container").removeClass("hide");
             $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
             $("." + cpuMark + "-winner-mark-container").addClass("hide");
+            $(".round-tied-container").addClass("hide");
+            player1VsCpuWins += 1;
             $(".player-" + playerOneMarkPVP + "-score").text(player1VsCpuWins);
          }
 
@@ -351,6 +385,7 @@ function playerOneTurnPVP() {
             $("." + playerOneMarkPVP + "-winner-mark-container").removeClass("hide");
             $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
             $("." + cpuMark + "-winner-mark-container").addClass("hide");
+            $(".round-tied-container").addClass("hide");
             player1VsCpuWins += 1;
             $(".player-" + playerOneMarkPVP + "-score").text(player1VsCpuWins);
         }
@@ -360,6 +395,7 @@ function playerOneTurnPVP() {
             $("." + playerOneMarkPVP + "-winner-mark-container").removeClass("hide");
             $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
             $("." + cpuMark + "-winner-mark-container").addClass("hide");
+            $(".round-tied-container").addClass("hide");
             player1VsCpuWins += 1;
             $(".player-" + playerOneMarkPVP + "-score").text(player1VsCpuWins);
         }
@@ -369,6 +405,7 @@ function playerOneTurnPVP() {
             $("." + playerOneMarkPVP + "-winner-mark-container").removeClass("hide");
             $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
             $("." + cpuMark + "-winner-mark-container").addClass("hide");
+            $(".round-tied-container").addClass("hide");
             player1VsCpuWins += 1;
             $(".player-" + playerOneMarkPVP + "-score").text(player1VsCpuWins);
         }
@@ -378,6 +415,7 @@ function playerOneTurnPVP() {
             $("." + playerOneMarkPVP + "-winner-mark-container").removeClass("hide");
             $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
             $("." + cpuMark + "-winner-mark-container").addClass("hide");
+            $(".round-tied-container").addClass("hide");
             player1VsCpuWins += 1;
             $(".player-" + playerOneMarkPVP + "-score").text(player1VsCpuWins);
         }
@@ -387,6 +425,9 @@ function playerOneTurnPVP() {
             $(".x-winner-mark-container").addClass("hide");
             $(".o-winner-mark-container").addClass("hide");
             $(".round-tied-container").removeClass("hide");
+            $(".winner-display-content-container").removeClass("hide");
+            tieCount += 1;
+            $(".tie-score").text(tieCount);
         }
 
     });
@@ -423,6 +464,7 @@ function playerTwoTurn() {
             $("." + playerTwoMark + "-winner-mark-container").removeClass("hide");
             $("." + playerOneMark + "-winner-mark-container").addClass("hide");
             $("." + cpuMark + "-winner-mark-container").addClass("hide");
+            $(".round-tied-container").addClass("hide");
             playerTwoWins += 1;
             console.log(playerTwoWins);
             $(".player-" + playerTwoMark + "-score").text(player2Wins);
@@ -434,6 +476,7 @@ function playerTwoTurn() {
             $("." + playerTwoMark + "-winner-mark-container").removeClass("hide");
             $("." + playerOneMark + "-winner-mark-container").addClass("hide");
             $("." + cpuMark + "-winner-mark-container").addClass("hide");
+            $(".round-tied-container").addClass("hide");
             playerTwoWins += 1;
             console.log(playerTwoWins);
             $(".player-" + playerTwoMark + "-score").text(player2Wins);
@@ -444,6 +487,7 @@ function playerTwoTurn() {
             $("." + playerTwoMark + "-winner-mark-container").removeClass("hide");
             $("." + playerOneMark + "-winner-mark-container").addClass("hide");
             $("." + cpuMark + "-winner-mark-container").addClass("hide");
+            $(".round-tied-container").addClass("hide");
             playerTwoWins += 1;
             console.log(playerTwoWins);
             $(".player-" + playerTwoMark + "-score").text(player2Wins);
@@ -454,6 +498,7 @@ function playerTwoTurn() {
             $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
             $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
             $("." + cpuMark + "-winner-mark-container").addClass("hide");
+            $(".round-tied-container").addClass("hide");
             player1VsCpuWins += 1;
             $(".player-" + playerTwoMark + "-score").text(player2Wins);
          }
@@ -463,6 +508,7 @@ function playerTwoTurn() {
             $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
             $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
             $("." + cpuMark + "-winner-mark-container").addClass("hide");
+            $(".round-tied-container").addClass("hide");
             player1VsCpuWins += 1;
             $(".player-" + playerTwoMark + "-score").text(player2Wins);
         }
@@ -472,6 +518,7 @@ function playerTwoTurn() {
             $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
             $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
             $("." + cpuMark + "-winner-mark-container").addClass("hide");
+            $(".round-tied-container").addClass("hide");
             player1VsCpuWins += 1;
             $(".player-" + playerTwoMark + "-score").text(player2Wins);
         }
@@ -481,6 +528,7 @@ function playerTwoTurn() {
             $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
             $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
             $("." + cpuMark + "-winner-mark-container").addClass("hide");
+            $(".round-tied-container").addClass("hide");
             player1VsCpuWins += 1;
             $(".player-" + playerTwoMark + "-score").text(player2Wins);
         }
@@ -490,6 +538,7 @@ function playerTwoTurn() {
             $("." + playerOneMark + "-winner-mark-container").removeClass("hide");
             $("." + playerTwoMark + "-winner-mark-container").addClass("hide");
             $("." + cpuMark + "-winner-mark-container").addClass("hide");
+            $(".round-tied-container").addClass("hide");
             player1VsCpuWins += 1;
             $(".player-" + playerTwoMark + "-score").text(player2Wins);
         }
@@ -499,6 +548,9 @@ function playerTwoTurn() {
             $(".x-winner-mark-container").addClass("hide");
             $(".o-winner-mark-container").addClass("hide");
             $(".round-tied-container").removeClass("hide");
+            $(".winner-display-content-container").removeClass("hide");
+            tieCount += 1;
+            $(".tie-score").text(tieCount);
         }
 
     });
@@ -556,7 +608,34 @@ $(".next-round-btn").on("click", function() {
     }
 
     else if (playerOneMark[0] == "o") {
-        cpuTurn();
+        setTimeout(cpuTurn(), 1000);
+    }
+
+    else if (playerOneMarkPVP[0] == "x") {
+        playerOneTurnPVP();
+    }
+
+    else if (playerOneMarkPVP[0] == "o") {
+        playerTwoTurn();
+    }
+});
+
+
+$(".restart-btn").on("click", function() {
+    playerOneMoves = [];
+    playerTwoMoves = [];
+    cpuMoves = [];
+    availableTiles = ["tile-1", "tile-2", "tile-3", "tile-4", "tile-5", "tile-6", "tile-7", "tile-8", "tile-9"];
+    $(".x").addClass("hide");
+    $(".o").addClass("hide");
+    $(".winner-display-content-container").addClass("hide");
+
+    if (playerOneMark[0] == "x") {
+        playerOneTurn();
+    }
+
+    else if (playerOneMark[0] == "o") {
+        setTimeout(cpuTurn(), 1000);
     }
 
     else if (playerOneMarkPVP[0] == "x") {

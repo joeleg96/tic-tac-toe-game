@@ -364,6 +364,48 @@ body {
     font-weight: 600;
 }
 
+.yes-restart-container {
+    width: 100vw;
+    height: 14.25rem;
+    background-color: var(--dark-navy);
+    box-shadow: -1px 2px 400px 2000px rgba(0,0,0,0.55);
+    position: absolute;
+    left: 0;
+    top: 20%;
+}
+
+.restart-text {
+    text-align: center;
+    color: var(--silver);
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.yes-restart-buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.cancel-btn {
+    width: 8.6875rem;
+    height: 3.25rem;
+    background-color: var(--silver);
+    color: var(--dark-navy);
+    border: none;
+    border-radius: .5rem;
+}
+
+.yes-restart-btn {
+    width: 9.4375rem;
+    height: 3.25rem;
+    border: none;
+    border-radius: .5rem;
+    background-color: var(--light-yellow);
+    margin-left: 1rem;
+}
+
 .hide {
     display: none;
 }
@@ -440,7 +482,7 @@ body {
         background-color: var(--silver-hover);
     }
 
-    .quit-btn, .next-round-btn {
+    .quit-btn, .next-round-btn, .cancel-btn, .yes-restart-btn {
         cursor: pointer;
     }
 }

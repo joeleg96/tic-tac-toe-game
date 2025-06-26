@@ -169,6 +169,7 @@ body {
 .player-turn-text {
     color: var(--silver);
     font-weight: 700;
+    text-transform: uppercase;
 }
 
 .player-turn {
@@ -212,6 +213,7 @@ body {
     align-items: center;
     background-color: var(--light-blue);
     border-radius: .5rem;
+    box-shadow: 0px 4px 0px 0px rgba(49,195,189,.55);
 }
 
 .player-x, .player-x-score {
@@ -227,6 +229,7 @@ body {
     align-items: center;
     background-color: var(--silver);
     border-radius: .5rem;
+    box-shadow: 0px 4px 0px 0px rgba(168,191,201,.55);
 }
 
 .tie-title, .tie-score {
@@ -242,6 +245,7 @@ body {
     align-items: center;
     background-color: var(--light-yellow);
     border-radius: .5rem;
+    box-shadow: 0px 4px 0px 0px rgba(255,200,96,.55);
 }
 
 .player-o, .player-o-score {
@@ -371,7 +375,7 @@ body {
     box-shadow: -1px 2px 400px 2000px rgba(0,0,0,0.55);
     position: absolute;
     left: 0;
-    top: 20%;
+    top: 35%;
 }
 
 .restart-text {
@@ -395,6 +399,7 @@ body {
     color: var(--dark-navy);
     border: none;
     border-radius: .5rem;
+    box-shadow: 0px 4px 0px 0px rgba(168,191,201,.55);
 }
 
 .yes-restart-btn {
@@ -404,6 +409,7 @@ body {
     border-radius: .5rem;
     background-color: var(--light-yellow);
     margin-left: 1rem;
+    box-shadow: 0px 4px 0px 0px rgba(255,200,96,.55);
 }
 
 .hide {

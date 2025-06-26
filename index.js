@@ -343,9 +343,7 @@ $(".vs-player-button").on("click", function() {
             $(".game-display").removeClass("hide");
             $(".player-o").text("O (P1)");
             $(".player-x").text("X (P2)");
-            // currentPlayerIndex = 1;
             switchTurn();
-            // playerTurnPVP();
          };
     };
 
@@ -626,11 +624,12 @@ $(".next-round-btn").on("click", function() {
     }
 
     else if (playerOneMarkPVP[0] == "x") {
+        currentPlayerIndex = 1;
         switchTurn();
     }
 
     else if (playerOneMarkPVP[0] == "o") {
-        currentPlayerIndex = 1;
+        currentPlayerIndex = 0;
         switchTurn();
     }
 });
